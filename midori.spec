@@ -1,14 +1,12 @@
 %define name midori
-%define version 0.0.1
+%define version 0.0.2
 %define release %mkrel 1
 
 Summary: Web browser based on GTK+ WebCore
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source: http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.bz2
-# Fixes build against current GTK+ WebCore. By AdamW.
-Patch0: midori-0.0.1-build.patch
+Source: http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.gz
 License: GPL
 Group: Networking/WWW
 Url: http://software.twotoasts.de/?page=midori
@@ -23,7 +21,6 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q
-%patch0 -p1 -b .build
 
 %build
 %configure
@@ -44,7 +41,7 @@ Icon=web_browser_section.png
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=GNOME;GTK;Network;WebBrowser;X-MandrivaLinux-Internet-WebBrowsers;
+Categories=GNOME;GTK;Network;WebBrowser;
 EOF
 
 %post
