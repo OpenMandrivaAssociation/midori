@@ -1,5 +1,5 @@
 %define name midori
-%define version 0.0.2
+%define version 0.0.3
 %define release %mkrel 1
 
 Summary: Web browser based on GTK+ WebCore
