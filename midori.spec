@@ -1,8 +1,8 @@
 %define name midori
-%define version 0.0.3
+%define version 0.0.5
 %define release %mkrel 1
 
-Summary: Web browser based on GTK+ WebCore
+Summary: Web browser based on GdkWebKit
 Name: %{name}
 Version: %{version}
 Release: %{release}
@@ -11,11 +11,10 @@ License: GPL
 Group: Networking/WWW
 Url: http://software.twotoasts.de/?page=midori
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: libgtk-webcore-nrcit-devel libsexy-devel
-Requires: gtk-webcore-nrcore
+BuildRequires: WebKitGdk-devel libsexy-devel
 
 %description
-Midori is a lightweight GTK+ 2 web browser based on GTK+ WebCore. It 
+Midori is a lightweight GTK+ 2 web browser based on WebKitGdk. It 
 features tabs, windows and session management, bookmarks stored with 
 XBEL, searchbox based on OpenSearch, and user scripts support.
 
@@ -23,7 +22,7 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 %setup -q
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
