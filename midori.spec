@@ -1,17 +1,17 @@
-%define name midori
-%define version 0.0.5
-%define release %mkrel 1
+%define name	midori
+%define version	0.0.6
+%define release	%mkrel 1
 
-Summary: Web browser based on GdkWebKit
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source: http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.gz
-License: GPL
-Group: Networking/WWW
-Url: http://software.twotoasts.de/?page=midori
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: WebKitGdk-devel libsexy-devel
+Summary:	Web browser based on GdkWebKit
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Source:		http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.gz
+License:	GPLv2+
+Group:		Networking/WWW
+URL:		http://software.twotoasts.de/?page=midori
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	WebKitGdk-devel libsexy-devel
 
 %description
 Midori is a lightweight GTK+ 2 web browser based on WebKitGdk. It 
