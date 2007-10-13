@@ -1,5 +1,5 @@
 %define name	midori
-%define version	0.0.8
+%define version	0.0.10
 %define release	%mkrel 1
 
 Summary:	Web browser based on GdkWebKit
@@ -7,7 +7,6 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Source:		http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.gz
-Patch0:		midori-0.0.8-new_api.patch
 License:	GPLv2+
 Group:		Networking/WWW
 URL:		http://software.twotoasts.de/?page=midori
@@ -21,7 +20,8 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q
-%patch0 -p0
+# Fix files date in the future...
+find -exec touch {} \;
 
 %build
 %configure2_5x
