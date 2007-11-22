@@ -1,6 +1,6 @@
 %define name	midori
-%define version	0.0.10
-%define release	%mkrel 2
+%define version	0.0.11
+%define release	%mkrel 1
 
 Summary:	Web browser based on GdkWebKit
 Name:		%{name}
