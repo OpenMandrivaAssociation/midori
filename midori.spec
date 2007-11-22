@@ -2,7 +2,7 @@
 %define version	0.0.11
 %define release	%mkrel 1
 
-Summary:	Web browser based on GdkWebKit
+Summary:	Web browser based on WebKitGtk
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
@@ -14,7 +14,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	WebKitGtk-devel libsexy-devel
 
 %description
-Midori is a lightweight GTK+ 2 web browser based on WebKitGdk. It 
+Midori is a lightweight GTK+ 2 web browser based on WebKitGtk. It 
 features tabs, windows and session management, bookmarks stored with 
 XBEL, searchbox based on OpenSearch, and user scripts support.
 
