@@ -14,7 +14,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	WebKitGtk-devel libsexy-devel
 
 %description
-Midori is a lightweight GTK+ 2 web browser based on WebKitGtk. It 
+Midori is a lightweight Gtk+ 2 web browser based on WebKitGtk. It 
 features tabs, windows and session management, bookmarks stored with 
 XBEL, searchbox based on OpenSearch, and user scripts support.
 
