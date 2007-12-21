@@ -10,6 +10,7 @@ Source:		http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.gz
 License:	GPLv2+
 Group:		Networking/WWW
 URL:		http://software.twotoasts.de/?page=midori
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	WebKitGtk-devel libsexy-devel
 
 %description
