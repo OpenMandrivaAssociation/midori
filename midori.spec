@@ -12,7 +12,7 @@ Group:		Networking/WWW
 URL:		http://software.twotoasts.de/?page=midori
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	WebKitGtk-devel libsexy-devel
-BuildRequires:	icu-devel
+BuildRequires:	icu-devel jpeg-devel
 
 %description
 Midori is a lightweight Gtk+ 2 web browser based on WebKitGtk. It 
