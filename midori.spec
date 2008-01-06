@@ -1,5 +1,5 @@
 %define name	midori
-%define version	0.0.13
+%define version	0.0.16
 %define release	%mkrel 1
 
 Summary:	Web browser based on WebKitGtk
