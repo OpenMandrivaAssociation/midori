@@ -1,7 +1,7 @@
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	0.0.17
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source:		http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.gz
 License:	GPLv2+
 Group:		Networking/WWW
@@ -13,6 +13,7 @@ BuildRequires:	icu-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	libxslt-devel
+Provides:	webclient
 
 %description
 Midori is a lightweight Gtk+ 2 web browser based on WebKitGtk. It 
