@@ -3,6 +3,7 @@ Name:		midori
 Version:	0.0.17
 Release:	%mkrel 2
 Source:		http://software.twotoasts.de/media/midori/%{name}-%{version}.tar.gz
+Patch0:		midori-0.0.17-middleclick.patch
 License:	GPLv2+
 Group:		Networking/WWW
 URL:		http://software.twotoasts.de/?page=midori
@@ -22,6 +23,7 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q
+%patch0 -p1 -b .middle
 # Fix files date in the future...
 find -exec touch {} \;
 
