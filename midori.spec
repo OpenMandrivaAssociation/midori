@@ -1,4 +1,4 @@
-%define git	20080320
+%define git	20080415
 %define rel	1
 
 %if %git
@@ -52,6 +52,8 @@ find -exec touch {} \;
 rm -rf %{buildroot}
 %makeinstall_std
 
+%find_lang %{name}
+
 %post
 %{update_menus}
 
@@ -61,7 +63,7 @@ rm -rf %{buildroot}
 %clean
 rm -rf %{buildroot}
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
 %{_bindir}/%{name}
