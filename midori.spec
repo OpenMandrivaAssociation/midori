@@ -27,6 +27,7 @@ BuildRequires:	icu-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	libxslt-devel
+BuildRequires:	intltool
 Provides:	webclient
 
 %description
