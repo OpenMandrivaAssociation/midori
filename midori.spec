@@ -1,4 +1,4 @@
-%define git	20080415
+%define git	20080423
 %define rel	1
 
 %if %git
@@ -17,7 +17,6 @@ Version:	0.0.18
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://software.twotoasts.de/media/midori/%{distname}
-Patch0:		midori-0.0.18-middleclick.patch
 License:	GPLv2+
 Group:		Networking/WWW
 URL:		http://software.twotoasts.de/?page=midori
@@ -37,7 +36,6 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q -n %{dirname}
-%patch0 -p1 -b .middle
 # Fix files date in the future...
 find -exec touch {} \;
 
