@@ -1,5 +1,5 @@
 %define git	0
-%define rel	1
+%define rel	2
 
 %if %git
 %define release		%mkrel 0.%git.%rel
@@ -21,7 +21,7 @@ License:	GPLv2+
 Group:		Networking/WWW
 URL:		http://software.twotoasts.de/?page=midori
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	WebKitGtk-devel
+BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
 BuildRequires:	jpeg-devel
