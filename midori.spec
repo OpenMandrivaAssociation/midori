@@ -1,4 +1,4 @@
-%define git	20080423
+%define git	0
 %define rel	1
 
 %if %git
