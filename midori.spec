@@ -1,5 +1,5 @@
-%define git	0
-%define rel	2
+%define git	20080617
+%define rel	1
 
 %if %git
 %define release		%mkrel 0.%git.%rel
@@ -13,7 +13,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.0.18
+Version:	0.0.19
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://software.twotoasts.de/media/midori/%{distname}
@@ -71,4 +71,4 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog README
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-
+%{_iconsdir}/hicolor/*/apps/%{name}.*
