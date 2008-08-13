@@ -1,4 +1,4 @@
-%define git	20080719
+%define git	20080813
 %define rel	1
 
 %if %git
@@ -13,7 +13,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.0.19
+Version:	0.0.20
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://software.twotoasts.de/media/midori/%{distname}
