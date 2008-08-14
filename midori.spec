@@ -1,5 +1,5 @@
 %define git	20080813
-%define rel	1
+%define rel	2
 
 %if %git
 %define release		%mkrel 0.%git.%rel
