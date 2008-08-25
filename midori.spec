@@ -41,15 +41,12 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 find -exec touch {} \;
 
 %build
-%if %git
-./autogen.sh
-%endif
-%configure2_5x
-%make
+./waf configure --prefix=%{_prefix} --datadir=%{_datadir}
+./waf build %_smp_mflags
 
 %install
 rm -rf %{buildroot}
-%makeinstall_std
+./waf install --destdir=%buildroot
 
 %find_lang %{name}
 
@@ -71,4 +68,4 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog README
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_iconsdir}/hicolor/*/apps/%{name}.*
+%{_iconsdir}/hicolor/*/*/*
