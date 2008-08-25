@@ -28,6 +28,7 @@ BuildRequires:	jpeg-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	intltool
+BuildRequires:	python-devel
 Provides:	webclient
 
 %description
