@@ -1,5 +1,5 @@
 %define git	0
-%define rel	1
+%define rel	2
 
 %if %git
 %define release		%mkrel 0.%git.%rel
@@ -16,16 +16,17 @@ Name:		midori
 Version:	0.0.20
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
-Source0:	http://software.twotoasts.de/media/midori/%{distname}
+Source0:	http://goodies.xfce.org/releases/midori/%{distname}
 License:	GPLv2+
 Group:		Networking/WWW
-URL:		http://software.twotoasts.de/?page=midori
+URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	sqlite3-devel
+BuildRequires:	libgtksourceview-2.0-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	intltool
 BuildRequires:	python-devel
