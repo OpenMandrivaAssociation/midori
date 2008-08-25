@@ -1,5 +1,5 @@
-%define git	20080813
-%define rel	2
+%define git	0
+%define rel	1
 
 %if %git
 %define release		%mkrel 0.%git.%rel
@@ -7,7 +7,7 @@
 %define dirname		%name
 %else
 %define release		%mkrel %rel
-%define distname	%name-%version.tar.gz
+%define distname	%name-%version.tar.bz2
 %define dirname		%name-%version
 %endif
 
