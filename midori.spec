@@ -31,6 +31,7 @@ BuildRequires:	libxslt-devel
 BuildRequires:	intltool
 BuildRequires:	python-devel
 BuildRequires:	librsvg
+BuildRequires:	unique-devel
 Provides:	webclient
 
 %description
