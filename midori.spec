@@ -1,5 +1,5 @@
-%define git	0
-%define rel	2
+%define git	20080906
+%define rel	1
 
 %if %git
 %define release		%mkrel 0.%git.%rel
@@ -13,7 +13,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.0.21
+Version:	0.0.22
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://goodies.xfce.org/releases/midori/%{distname}
@@ -30,6 +30,7 @@ BuildRequires:	libgtksourceview-2.0-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	intltool
 BuildRequires:	python-devel
+BuildRequires:	librsvg
 Provides:	webclient
 
 %description
@@ -44,7 +45,7 @@ find -exec touch {} \;
 
 %build
 ./waf configure --prefix=%{_prefix} --datadir=%{_datadir}
-./waf build %_smp_mflags
+CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" ./waf build %{_smp_mflags}
 
 %install
 rm -rf %{buildroot}
@@ -55,11 +56,13 @@ rm -rf %{buildroot}
 %if %mdkversion < 200900
 %post
 %{update_menus}
+%{update_icon_cache hicolor}
 %endif
 
 %if %mdkversion < 200900
 %postun
 %{clean_menus}
+%{clean_icon_cache hicolor}
 %endif
 
 %clean
