@@ -1,4 +1,4 @@
-%define git	20080906
+%define git 	0
 %define rel	1
 
 %if %git
@@ -13,7 +13,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.0.22
+Version:	0.1.0
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://goodies.xfce.org/releases/midori/%{distname}
@@ -50,7 +50,7 @@ CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" ./waf configure --prefix=%{_prefix} 
 
 %install
 rm -rf %{buildroot}
-./waf install --destdir=%buildroot
+./waf install --destdir=%{buildroot}
 
 %find_lang %{name}
 
