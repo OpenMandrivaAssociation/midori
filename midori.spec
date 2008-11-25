@@ -45,7 +45,7 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 find -exec touch {} \;
 
 %build
-CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" ./waf configure --prefix=%{_prefix} --datadir=%{_datadir}
+CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" ./waf configure --prefix=%{_prefix} --datadir=%{_datadir} --libdir=%{_libdir}
 ./waf build %{_smp_mflags}
 
 %install
