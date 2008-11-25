@@ -74,6 +74,7 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog README
 %dir %{_datadir}/%{name}
 %{_bindir}/%{name}
+%{_libdir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/%{name}/*.png
