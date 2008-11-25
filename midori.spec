@@ -1,4 +1,4 @@
-%define git 	0
+%define git 	20081125
 %define rel	1
 
 %if %git
@@ -13,11 +13,11 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.1.0
+Version:	0.1.1
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://goodies.xfce.org/releases/midori/%{distname}
-License:	GPLv2+
+License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
