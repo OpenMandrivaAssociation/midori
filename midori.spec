@@ -17,9 +17,6 @@ Version:	0.1.2
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://goodies.xfce.org/releases/midori/%{distname}
-# Fix a 'format not a string literal and no format arguments' issue
-# Will be fixed in next release / snapshot - AdamW 2008/12
-Patch0:		midori-20081219-format.patch
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
@@ -45,7 +42,6 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q -n %{dirname}
-%patch0 -p1
 # Fix files date in the future...
 find -exec touch {} \;
 
