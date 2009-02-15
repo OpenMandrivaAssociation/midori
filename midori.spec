@@ -1,4 +1,4 @@
-%define git 	0
+%define git 	20090214
 %define rel	1
 
 %if %git
@@ -13,7 +13,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.1.2
+Version:	0.1.3
 Release:	%{release}
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://goodies.xfce.org/releases/midori/%{distname}
@@ -32,6 +32,7 @@ BuildRequires:	intltool
 BuildRequires:	python-devel
 BuildRequires:	librsvg
 BuildRequires:	unique-devel
+BuildRequires:	libsoup-devel
 BuildRequires:	python-docutils
 Provides:	webclient
 
@@ -79,3 +80,5 @@ rm -rf %{buildroot}
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/%{name}/*.png
+%{_sysconfdir}/xdg/midori/search
+
