@@ -13,14 +13,13 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.1.6
+Version:	0.1.7
 Release:	%{release}
-# For git: git clone http://software.twotoasts.de/media/midori.git
-Source0:	http://goodies.xfce.org/releases/midori/%{distname}
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+# For git: git clone http://software.twotoasts.de/media/midori.git
+Source0:	http://goodies.xfce.org/releases/midori/%{distname}
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
@@ -35,6 +34,7 @@ BuildRequires:	unique-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	python-docutils
 Provides:	webclient
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Midori is a lightweight GTK+ 2 web browser based on WebKitGtk. It 
@@ -47,7 +47,20 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 find -exec touch {} \;
 
 %build
-CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" LDFLAGS="%{ldflags}" ./waf configure --prefix=%{_prefix} --datadir=%{_datadir} --libdir=%{_libdir}
+# (tpg) got broken since 0.1.7
+%define _disable_ld_no_undefined 1
+export CFLAGS="%{optflags}"
+export CXXFLAGS="%{optflags}"
+export LDFLAGS="%{ldflags}" 
+
+./waf configure \
+	--prefix=%{_prefix} \
+	--datadir=%{_datadir} \
+	--libdir=%{_libdir} \
+	--enable-addons \
+	--enable-sqlite \
+	--enable-libidn
+
 ./waf build %{_smp_mflags}
 
 %install
@@ -79,6 +92,5 @@ rm -rf %{buildroot}
 %{_libdir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
-%{_datadir}/%{name}/*.png
+%{_datadir}/%{name}
 %{_sysconfdir}/xdg/midori/search
-
