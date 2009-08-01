@@ -13,13 +13,13 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.1.8
+Version:	0.1.9
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
-Source0:	http://goodies.xfce.org/releases/midori/%{distname}
+Source0:	http://archive.xfce.org/src/apps/midori/0.1/%{distname}
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
