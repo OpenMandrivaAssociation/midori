@@ -1,5 +1,5 @@
 %define git	0
-%define rel	1
+%define rel	2
 
 %if %git
 %define release		%mkrel 0.%git.%rel
@@ -20,6 +20,7 @@ Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://archive.xfce.org/src/apps/midori/0.1/%{distname}
+Patch0:		midori-0.1.9-i18n.patch
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
@@ -43,8 +44,7 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q -n %{dirname}
-# Fix files date in the future...
-find -exec touch {} \;
+%patch0 -p0 -b .i18n
 
 %build
 # (tpg) got broken since 0.1.7
