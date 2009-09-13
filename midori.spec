@@ -1,5 +1,5 @@
 %define git	0
-%define rel	2
+%define rel	1
 
 %if %git
 %define release		%mkrel 0.%git.%rel
