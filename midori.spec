@@ -1,6 +1,8 @@
 %define git	0
 %define rel	1
 
+%define url_ver %(echo %{version} | cut -c 1-3)
+
 %if %git
 %define release		%mkrel 0.%git.%rel
 %define distname	%name-%git.tar.lzma
@@ -13,13 +15,13 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.1.10
+Version:	0.2.0
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
-Source0:	http://archive.xfce.org/src/apps/midori/0.1/%{distname}
+Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{distname}
 Patch0:		midori-0.1.9-i18n.patch
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
