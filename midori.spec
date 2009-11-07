@@ -22,7 +22,6 @@ Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{distname}
-Patch0:		midori-0.1.9-i18n.patch
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
@@ -36,6 +35,7 @@ BuildRequires:	librsvg
 BuildRequires:	unique-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	python-docutils
+BuildRequires:	waf
 Provides:	webclient
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -46,28 +46,24 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q -n %{dirname}
-%patch0 -p0 -b .i18n
 
 %build
 # (tpg) got broken since 0.1.7
 %define _disable_ld_no_undefined 1
-export CFLAGS="%{optflags}"
-export CXXFLAGS="%{optflags}"
-export LDFLAGS="%{ldflags}" 
+#export CFLAGS="%{optflags}"
+#export CXXFLAGS="%{optflags}"
+#export LDFLAGS="%{ldflags}" 
 
-./waf configure \
-	--prefix=%{_prefix} \
-	--datadir=%{_datadir} \
-	--libdir=%{_libdir} \
+%configure_waf \
 	--enable-addons \
 	--enable-sqlite \
 	--enable-libidn
 
-./waf build %{_smp_mflags}
+%waf
 
 %install
 rm -rf %{buildroot}
-./waf install --destdir=%{buildroot}
+%waf_install
 
 %find_lang %{name}
 
@@ -96,3 +92,4 @@ rm -rf %{buildroot}
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/%{name}
 %{_sysconfdir}/xdg/midori/search
+%{_sysconfdir}/midori
