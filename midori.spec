@@ -22,6 +22,8 @@ Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{distname}
+# (tpg) set default homepage
+Patch0:		midori-0.2.3-default-homepage.patch
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
@@ -37,6 +39,8 @@ BuildRequires:	libsoup-devel
 BuildRequires:	python-docutils
 BuildRequires:	waf
 Provides:	webclient
+Requires:	indexhtml
+Requires:	xdg-utils
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -46,6 +50,7 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %prep
 %setup -q -n %{dirname}
+%patch0 -p1
 
 %build
 # (tpg) got broken since 0.1.7
