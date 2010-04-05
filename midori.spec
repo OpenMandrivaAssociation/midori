@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.2.3
+Version:	0.2.4
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -23,7 +23,7 @@ URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{distname}
 # (tpg) set default homepage
-Patch0:		midori-0.2.3-default-homepage.patch
+Patch0:		midori-0.2.4-default-homepage.patch
 BuildRequires:	webkitgtk-devel
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
@@ -38,6 +38,7 @@ BuildRequires:	unique-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	python-docutils
 BuildRequires:	waf
+BuildRequires:	python-pyunit
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
@@ -57,7 +58,10 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 %define _disable_ld_no_undefined 1
 #export CFLAGS="%{optflags}"
 #export CXXFLAGS="%{optflags}"
-#export LDFLAGS="%{ldflags}" 
+#export LDFLAGS="%{ldflags}"
+
+# (tpg) fix module naming
+sed -i -e 's/import UnitTest/import unittest/g' wscript
 
 %configure_waf \
 	--enable-addons \
@@ -96,5 +100,4 @@ rm -rf %{buildroot}
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/%{name}
-%{_sysconfdir}/xdg/midori/search
-%{_sysconfdir}/midori
+%{_sysconfdir}/xdg/midori
