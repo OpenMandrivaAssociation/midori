@@ -54,7 +54,7 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %build
 # (tpg) got broken since 0.1.7
-define _disable_ld_no_undefined 1
+%define _disable_ld_no_undefined 1
 #export CFLAGS="%{optflags}"
 #export CXXFLAGS="%{optflags}"
 #export LDFLAGS="%{ldflags}"
