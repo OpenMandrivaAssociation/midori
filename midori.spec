@@ -1,5 +1,5 @@
 %define git	0
-%define rel	1
+%define rel	2
 
 %define url_ver %(echo %{version} | cut -c 1-3)
 
@@ -38,7 +38,6 @@ BuildRequires:	unique-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	python-docutils
 BuildRequires:	waf
-BuildRequires:	python-pyunit
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
@@ -55,7 +54,7 @@ XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %build
 # (tpg) got broken since 0.1.7
-%define _disable_ld_no_undefined 1
+define _disable_ld_no_undefined 1
 #export CFLAGS="%{optflags}"
 #export CXXFLAGS="%{optflags}"
 #export LDFLAGS="%{ldflags}"
