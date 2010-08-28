@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.2.6
+Version:	0.2.7
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -39,6 +39,7 @@ BuildRequires:	libsoup-devel >= 2.25.2
 BuildRequires:	libxml2-devel 
 BuildRequires:	python-docutils
 BuildRequires:	waf
+BuildRequires:	vala
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
@@ -48,6 +49,14 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Midori is a lightweight GTK+ 2 web browser based on WebKitGtk. It 
 features tabs, windows and session management, bookmarks stored with 
 XBEL, searchbox based on OpenSearch, and user scripts support.
+
+%package vala
+Group:   Networking/WWW
+Summary: vala supported extensions for %{name}
+Requires: %{name} = %{version}
+
+%description vala
+This package contains files needed when building vala supported extensions for %{name}.
 
 %prep
 %setup -q -n %{dirname}
@@ -65,7 +74,6 @@ sed -i -e 's/import UnitTest/import unittest/g' wscript
 
 %configure_waf \
 	--enable-addons \
-	--enable-sqlite \
 	--enable-libidn
 
 %waf
@@ -101,3 +109,11 @@ rm -rf %{buildroot}
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/%{name}
 %{_sysconfdir}/xdg/midori
+
+%files vala
+%defattr(-,root,root)
+%{_includedir}/%{name}-0.2
+%{_datadir}/vala/vapi/external-applications.deps
+%{_datadir}/vala/vapi/external-applications.vapi
+%{_datadir}/vala/vapi/history-list.deps
+%{_datadir}/vala/vapi/history-list.vapi
