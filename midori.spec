@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.2.7
+Version:	0.2.8
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
