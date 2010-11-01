@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.2.8
+Version:	0.2.9
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -102,7 +102,6 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog README
-%dir %{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_libdir}/%{name}
 %{_datadir}/applications/%{name}.desktop
@@ -113,7 +112,5 @@ rm -rf %{buildroot}
 %files vala
 %defattr(-,root,root)
 %{_includedir}/%{name}-0.2
-%{_datadir}/vala/vapi/external-applications.deps
-%{_datadir}/vala/vapi/external-applications.vapi
 %{_datadir}/vala/vapi/history-list.deps
 %{_datadir}/vala/vapi/history-list.vapi
