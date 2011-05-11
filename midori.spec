@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.2.9
+Version:	0.3.5
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -59,7 +59,7 @@ Requires: %{name} = %{version}
 This package contains files needed when building vala supported extensions for %{name}.
 
 %prep
-%setup -q -n %{dirname}
+%setup -q -n %{name}-%{version}
 %patch0 -p1
 
 %build
@@ -84,18 +84,6 @@ rm -rf %{buildroot}
 
 %find_lang %{name}
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%{update_icon_cache hicolor}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%{clean_icon_cache hicolor}
-%endif
-
 %clean
 rm -rf %{buildroot}
 
@@ -111,6 +99,6 @@ rm -rf %{buildroot}
 
 %files vala
 %defattr(-,root,root)
-%{_includedir}/%{name}-0.2
+%{_includedir}/%{name}-0.3/extensions/history-list.h
 %{_datadir}/vala/vapi/history-list.deps
 %{_datadir}/vala/vapi/history-list.vapi
