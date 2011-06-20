@@ -1,5 +1,5 @@
 %define git	0
-%define rel	2
+%define rel	3
 
 %define url_ver %(echo %{version} | cut -c 1-3)
 
