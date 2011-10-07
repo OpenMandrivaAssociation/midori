@@ -91,7 +91,7 @@ sed -i -e 's/import UnitTest/import unittest/g' wscript
 
 %install
 rm -rf %{buildroot}
-%waf_install
+./waf --destdir=%{buildroot} install
 
 %find_lang %{name}
 
