@@ -81,7 +81,7 @@ sed -i -e 's/import UnitTest/import unittest/g' wscript
 
 # (tpg) midori needs waf-1.5, so use internal one
 ./waf \
-    --prefix=%{prefix} \
+    --prefix=%{_prefix} \
     --bindir=%{_bindir} \
     --libdir=%{_libdir} \
 
