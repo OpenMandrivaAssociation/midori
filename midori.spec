@@ -1,5 +1,5 @@
 %define git	0
-%define rel	3
+%define rel	1
 
 %define url_ver %(echo %{version} | cut -c 1-3)
 
@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.3.6
+Version:	0.4.0
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -40,6 +40,8 @@ BuildRequires:	libxml2-devel
 BuildRequires:	python-docutils
 BuildRequires:	waf
 BuildRequires:	vala
+BuildRequires:	libxscrnsaver-devel
+BuildRequires:	libnotify-devel
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
@@ -65,9 +67,12 @@ This package contains files needed when building vala supported extensions for %
 %build
 # (tpg) got broken since 0.1.7
 %define _disable_ld_no_undefined 1
-#export CFLAGS="%{optflags}"
-#export CXXFLAGS="%{optflags}"
-#export LDFLAGS="%{ldflags}"
+
+%if %mdvver >= 201200
+%serverbuild_hardened
+%else
+%serverbuild
+%endif
 
 # (tpg) fix module naming
 sed -i -e 's/import UnitTest/import unittest/g' wscript
@@ -99,6 +104,6 @@ rm -rf %{buildroot}
 
 %files vala
 %defattr(-,root,root)
-%{_includedir}/%{name}-0.3/extensions/history-list.h
+%{_includedir}/%{name}-0.4/extensions/history-list.h
 %{_datadir}/vala/vapi/history-list.deps
 %{_datadir}/vala/vapi/history-list.vapi
