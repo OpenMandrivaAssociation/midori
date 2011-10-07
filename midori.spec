@@ -77,20 +77,17 @@ This package contains files needed when building vala supported extensions for %
 # (tpg) fix module naming
 sed -i -e 's/import UnitTest/import unittest/g' wscript
 
-#%configure_waf \
 
 # (tpg) midori needs waf-1.5, so use internal one
 ./waf \
     --prefix=%{_prefix} \
     --bindir=%{_bindir} \
     --libdir=%{_libdir} \
-
-	--enable-addons \
-	--enable-libidn \
-	configure
+    --enable-addons \
+    --enable-libidn \
+    configure
 
 ./waf build --want-rpath=0
-#%waf
 
 %install
 rm -rf %{buildroot}
