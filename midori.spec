@@ -65,18 +65,10 @@ This package contains files needed when building vala supported extensions for %
 %patch0 -p1
 
 %build
-# (tpg) got broken since 0.1.7
-%define _disable_ld_no_undefined 1
-
-%if %mdvver >= 201200
-%serverbuild_hardened
-%else
 %serverbuild
-%endif
 
 # (tpg) fix module naming
 sed -i -e 's/import UnitTest/import unittest/g' wscript
-
 
 # (tpg) midori needs waf-1.5, so use internal one
 ./waf \
@@ -103,7 +95,7 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog README
 %{_bindir}/%{name}
 %{_libdir}/%{name}
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/%{name}
 %{_sysconfdir}/xdg/midori
