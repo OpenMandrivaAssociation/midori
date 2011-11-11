@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.4.1
+Version:	0.4.2
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -76,7 +76,6 @@ sed -i -e 's/import UnitTest/import unittest/g' wscript
     --bindir=%{_bindir} \
     --libdir=%{_libdir} \
     --enable-addons \
-    --enable-libidn \
     configure
 
 ./waf build --want-rpath=0
