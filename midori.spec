@@ -15,7 +15,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.4.2
+Version:	0.4.3
 Release:	%{release}
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -24,7 +24,7 @@ URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{distname}
 # (tpg) set default homepage
 Patch0:		midori-0.2.4-default-homepage.patch
-BuildRequires:	webkitgtk-devel >= 1.1.1
+BuildRequires:	webkitgtk-devel >= 1.1.17
 BuildRequires:	libsexy-devel
 BuildRequires:	icu-devel
 BuildRequires:	jpeg-devel
@@ -35,11 +35,11 @@ BuildRequires:	intltool
 BuildRequires:	python-devel
 BuildRequires:	librsvg
 BuildRequires:	unique-devel >= 0.9
-BuildRequires:	libsoup-devel >= 2.25.2
+BuildRequires:	libsoup-devel >= 2.27.90
 BuildRequires:	libxml2-devel 
 BuildRequires:	python-docutils
 BuildRequires:	waf
-BuildRequires:	vala
+BuildRequires:	vala >= 0.10
 BuildRequires:	libxscrnsaver-devel
 BuildRequires:	libnotify-devel
 Provides:	webclient
