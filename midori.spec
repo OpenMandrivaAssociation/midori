@@ -65,7 +65,7 @@ This package contains files needed when building vala supported extensions for %
 %patch0 -p1
 
 %build
-%serverbuild
+export CFLAGS="%{optflags} -fPIC"
 
 # (tpg) fix module naming
 sed -i -e 's/import UnitTest/import unittest/g' wscript
