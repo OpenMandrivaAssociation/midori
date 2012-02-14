@@ -1,51 +1,40 @@
-%define git	0
-%define rel	1
-
 %define url_ver %(echo %{version} | cut -c 1-3)
-
-%if %git
-%define release		%mkrel 0.%git.%rel
-%define distname	%name-%git.tar.lzma
-%define dirname		%name
-%else
-%define release		%mkrel %rel
-%define distname	%name-%version.tar.bz2
-%define dirname		%name-%version
-%endif
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	0.4.3
-Release:	%{release}
+Release:	2
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
-Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{distname}
+Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{name}-%{version}.tar.bz2
 # (tpg) set default homepage
 Patch0:		midori-0.2.4-default-homepage.patch
-BuildRequires:	webkitgtk-devel >= 1.1.17
-BuildRequires:	libsexy-devel
-BuildRequires:	icu-devel
-BuildRequires:	jpeg-devel
-BuildRequires:	sqlite3-devel
-BuildRequires:	libgtksourceview-2.0-devel
-BuildRequires:	libxslt-devel
+
+BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
-BuildRequires:	python-devel
 BuildRequires:	librsvg
-BuildRequires:	unique-devel >= 0.9
-BuildRequires:	libsoup-devel >= 2.27.90
-BuildRequires:	libxml2-devel 
 BuildRequires:	python-docutils
 BuildRequires:	waf
-BuildRequires:	vala >= 0.10
-BuildRequires:	libxscrnsaver-devel
-BuildRequires:	libnotify-devel
-Provides:	webclient
+BuildRequires:	vala >= 0.13.2
+BuildRequires:	pkgconfig(gio-2.0) >= 2.16.0
+BuildRequires:	pkgconfig(gmodule-2.0) >= 2.8.0
+BuildRequires:	pkgconfig(gthread-2.0) >= 2.8.0
+BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0.0
+BuildRequires:	pkgconfig(libidn) >= 1.0
+BuildRequires:	pkgconfig(libnotify)
+BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.6
+BuildRequires:	pkgconfig(sqlite3) >= 3.0
+BuildRequires:	pkgconfig(unique-3.0) >= 0.9
+BuildRequires:	pkgconfig(webkitgtk-3.0) >= 1.1.17
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xscrnsaver)
 Requires:	indexhtml
 Requires:	xdg-utils
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Requires:	glib-networking
+Provides:	webclient
 
 %description
 Midori is a lightweight GTK+ 2 web browser based on WebKitGtk. It 
@@ -58,39 +47,38 @@ Summary: vala supported extensions for %{name}
 Requires: %{name} = %{version}
 
 %description vala
-This package contains files needed when building vala supported extensions for %{name}.
+This package contains files needed when building vala supported extensions for i
+%{name}.
 
 %prep
-%setup -q -n %{name}-%{version}
-%patch0 -p1
-
-%build
-export CFLAGS="%{optflags} -fPIC"
+%setup -q
+%apply_patches
 
 # (tpg) fix module naming
 sed -i -e 's/import UnitTest/import unittest/g' wscript
 
-# (tpg) midori needs waf-1.5, so use internal one
-./waf \
-    --prefix=%{_prefix} \
-    --bindir=%{_bindir} \
-    --libdir=%{_libdir} \
-    --enable-addons \
-    configure
+%build
+export CFLAGS="%{optflags} -fPIC"
 
-./waf build --want-rpath=0
+# (tpg) midori needs waf-1.5, so use internal one
+./waf configure \
+	--prefix=%{_prefix} \
+	--bindir=%{_bindir} \
+	--libdir=%{_libdir} \
+	--enable-gtk3 \
+	--enable-addons \
+
+./waf build \
+	--want-rpath=0
 
 %install
 rm -rf %{buildroot}
-./waf --destdir=%{buildroot} install
+./waf install \
+	--destdir=%{buildroot}
 
 %find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog README
 %{_bindir}/%{name}
 %{_libdir}/%{name}
@@ -100,7 +88,6 @@ rm -rf %{buildroot}
 %{_sysconfdir}/xdg/midori
 
 %files vala
-%defattr(-,root,root)
 %{_includedir}/%{name}-0.4/extensions/history-list.h
 %{_datadir}/vala/vapi/history-list.deps
 %{_datadir}/vala/vapi/history-list.vapi
