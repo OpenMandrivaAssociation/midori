@@ -47,7 +47,7 @@ Summary: vala supported extensions for %{name}
 Requires: %{name} = %{version}
 
 %description vala
-This package contains files needed when building vala supported extensions for i
+This package contains files needed when building vala supported extensions for
 %{name}.
 
 %prep
