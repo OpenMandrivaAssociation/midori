@@ -3,7 +3,7 @@
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	0.4.3
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
@@ -34,6 +34,7 @@ BuildRequires:	pkgconfig(xscrnsaver)
 Requires:	indexhtml
 Requires:	xdg-utils
 Requires:	glib-networking
+Requires:	dbus-x11
 Provides:	webclient
 
 %description
