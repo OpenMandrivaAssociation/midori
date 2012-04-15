@@ -2,7 +2,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.4.4
+Version:	0.4.5
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -59,6 +59,7 @@ This package contains files needed when building vala supported extensions for
 sed -i -e 's/import UnitTest/import unittest/g' wscript
 
 %build
+%setup_compile_flags
 export CFLAGS="%{optflags} -fPIC"
 
 # (tpg) midori needs waf-1.5, so use internal one
@@ -73,11 +74,10 @@ export CFLAGS="%{optflags} -fPIC"
 	--want-rpath=0
 
 %install
-rm -rf %{buildroot}
 ./waf install \
 	--destdir=%{buildroot}
 
-%find_lang %{name}
+%find_lang %{name} %{name}.lang
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog README
