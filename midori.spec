@@ -70,6 +70,7 @@ export CFLAGS="%{optflags} -fPIC"
 	--libdir=%{_libdir} \
 	--enable-gtk3 \
 	--enable-addons \
+	--disable-docs \
 
 ./waf build \
 	--want-rpath=0
