@@ -2,7 +2,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.4.5
+Version:	0.4.7
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -10,7 +10,8 @@ URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
 Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{name}-%{version}.tar.bz2
 # (tpg) set default homepage
-Patch0:		midori-0.2.4-default-homepage.patch
+#but why? google.com seems to be ok page for default
+#Patch0:		midori-0.2.4-default-homepage.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
