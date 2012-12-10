@@ -3,7 +3,7 @@
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	0.4.7
-Release:	1
+Release:	3
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
@@ -60,7 +60,8 @@ This package contains files needed when building vala supported extensions for
 sed -i -e 's/import UnitTest/import unittest/g' wscript
 
 %build
-%setup_compile_flags
+#% setup_compile_flags
+#this macro fails build process
 export CFLAGS="%{optflags} -fPIC"
 
 # (tpg) midori needs waf-1.5, so use internal one
@@ -70,7 +71,6 @@ export CFLAGS="%{optflags} -fPIC"
 	--libdir=%{_libdir} \
 	--enable-gtk3 \
 	--enable-addons \
-	--disable-docs \
 
 ./waf build \
 	--want-rpath=0
@@ -91,6 +91,6 @@ export CFLAGS="%{optflags} -fPIC"
 %{_sysconfdir}/xdg/midori
 
 %files vala
-%{_includedir}/%{name}-0.4/extensions/history-list.h
-%{_datadir}/vala/vapi/history-list.deps
-%{_datadir}/vala/vapi/history-list.vapi
+%{_includedir}/%{name}-0.4/extensions/*.h
+%{_datadir}/vala/vapi/*.deps
+%{_datadir}/vala/vapi/*.vapi
