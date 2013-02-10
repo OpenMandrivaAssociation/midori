@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(webkitgtk-3.0) >= 1.1.17
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(gcr-3)
+BuildRequires:	pkgconfig(zeitgeist-1.0)
 Requires:	indexhtml
 Requires:	xdg-utils
 Requires:	glib-networking
