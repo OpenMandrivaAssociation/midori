@@ -2,8 +2,8 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.4.7
-Release:	3
+Version:	0.4.8
+Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
@@ -11,7 +11,7 @@ URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{name}-%{version}.tar.bz2
 # (tpg) set default homepage
 #but why? google.com seems to be ok page for default
-#Patch0:		midori-0.2.4-default-homepage.patch
+#Patch0:	midori-0.2.4-default-homepage.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
@@ -44,9 +44,9 @@ features tabs, windows and session management, bookmarks stored with
 XBEL, searchbox based on OpenSearch, and user scripts support.
 
 %package vala
-Group:   Networking/WWW
-Summary: vala supported extensions for %{name}
-Requires: %{name} = %{version}
+Group:		Networking/WWW
+Summary:	vala supported extensions for %{name}
+Requires:	%{name} = %{version}
 
 %description vala
 This package contains files needed when building vala supported extensions for
