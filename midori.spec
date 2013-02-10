@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig(unique-3.0) >= 0.9
 BuildRequires:	pkgconfig(webkitgtk-3.0) >= 1.1.17
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xscrnsaver)
+BuildRequires:	pkgconfig(gcr-3)
 Requires:	indexhtml
 Requires:	xdg-utils
 Requires:	glib-networking
