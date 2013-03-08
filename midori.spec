@@ -2,7 +2,7 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.4.8
+Version:	0.4.9
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
@@ -73,6 +73,7 @@ export CFLAGS="%{optflags} -fPIC"
 	--libdir=%{_libdir} \
 	--enable-gtk3 \
 	--enable-addons \
+    --enable-webkit2
 
 ./waf build \
 	--want-rpath=0
