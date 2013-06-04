@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   midori-0.4.9.tar.bz2: c845ced87ee758472d8e5e2080a5b2b1d4f2d041
+sources:
+  midori-0.5.2.tar.bz2: 447f19716cff4d10163e21f236b37efdf4d67d44
