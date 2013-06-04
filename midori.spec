@@ -93,6 +93,6 @@ export CFLAGS="%{optflags} -fPIC"
 %{_sysconfdir}/xdg/midori
 
 %files vala
-%{_includedir}/%{name}-0.4/extensions/*.h
+%{_includedir}/%{name}-0.5/extensions/*.h
 %{_datadir}/vala/vapi/*.deps
 %{_datadir}/vala/vapi/*.vapi
