@@ -2,13 +2,13 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.5.2
+Version:	0.5.5
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.twotoasts.de/index.php?/pages/midori_summary.html
 # For git: git clone http://software.twotoasts.de/media/midori.git
-Source0:	http://archive.xfce.org/src/apps/midori/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	http://www.midori-browser.org/downloads/%{name}_%{version}_all_.tar.bz2
 # (tpg) set default homepage
 #but why? google.com seems to be ok page for default
 #Patch0:	midori-0.2.4-default-homepage.patch
@@ -54,6 +54,16 @@ Requires:	%{name} = %{version}
 This package contains files needed when building vala supported extensions for
 %{name}.
 
+%package devel
+Group:		Networking/WWW
+Summary:	Development files for building Vala supported extensions for %{name}
+Obsoletes:	%{name}-vala < 0.5.2-1
+
+%description devel
+This package contains files needed when building vala supported extensions
+for %{name}.
+
+
 %prep
 %setup -q
 %apply_patches
@@ -81,6 +91,14 @@ export CFLAGS="%{optflags} -fPIC"
 ./waf install \
 	--destdir=%{buildroot}
 
+
+#fix desktop file
+desktop-file-install \
+	--remove-not-show-in="Pantheon" \
+	--dir %{buildroot}%{_datadir}/applications \
+		 %{buildroot}%{_datadir}/applications/*.desktop
+
+
 %find_lang %{name} %{name}.lang
 
 %files -f %{name}.lang
@@ -93,6 +111,8 @@ export CFLAGS="%{optflags} -fPIC"
 %{_sysconfdir}/xdg/midori
 
 %files vala
-%{_includedir}/%{name}-0.5/extensions/*.h
 %{_datadir}/vala/vapi/*.deps
 %{_datadir}/vala/vapi/*.vapi
+
+%files devel
+%{_includedir}/%{name}*
