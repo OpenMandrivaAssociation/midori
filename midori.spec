@@ -2,9 +2,6 @@
 %define libname	%mklibname %{name}-core %{major}
 %define devname	%mklibname %{name}-core -d
 
-# don't provide plugin .so
-%define _exclude_files_from_autoprov %{_libdir}/%{name}/.*\\.so
-
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	0.5.8
