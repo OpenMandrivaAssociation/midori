@@ -14,6 +14,7 @@ BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
 BuildRequires:	intltool
+BuildRequires:	gtk-doc
 BuildRequires:  pkgconfig(gio-2.0) >= 2.16.0
 BuildRequires:  pkgconfig(gmodule-2.0) >= 2.8.0
 BuildRequires:  pkgconfig(gthread-2.0) >= 2.8.0
