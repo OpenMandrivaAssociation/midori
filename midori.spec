@@ -12,6 +12,7 @@ URL:		http://www.midori-browser.org/
 Source0:	http://www.midori-browser.org/downloads/%{name}_%{version}_all_.tar.bz2
 BuildRequires:  vala
 BuildRequires:  cmake
+BuildRequires:  librsvg
 BuildRequires:  pkgconfig(gio-2.0) >= 2.16.0
 BuildRequires:  pkgconfig(gmodule-2.0) >= 2.8.0
 BuildRequires:  pkgconfig(gthread-2.0) >= 2.8.0
