@@ -5,7 +5,7 @@
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	0.5.8
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
