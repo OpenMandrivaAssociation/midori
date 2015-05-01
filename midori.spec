@@ -62,6 +62,9 @@ This package contains the development files for %{name}.
 %setup -q -c
 %apply_patches
 
+# remove patch backups as they confuse cmake
+find . -name "*.0001~" -exec rm -f {} \;
+
 %build
 %cmake -DUSE_APIDOCS=1 -DUSE_GTK3=ON -DUSE_ZEITGEIST=OFF
 %make
