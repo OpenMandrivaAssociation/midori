@@ -20,3 +20,14 @@
                      _("The plug-in was unable to connect with aria2:\n" +
                        "Please make sure that aria2 is running with rpc enabled ie: aria2c --enable-rpc\n" +
                        "If it's so, check it also is using the port 6800.\n" +
+--- t/extensions/transfers.vala.ortig	2015-05-01 12:46:48.405733204 +0100
++++ t/extensions/transfers.vala	2015-05-01 12:46:59.975203624 +0100
+@@ -510,7 +510,7 @@
+             if (pending_transfers (array)) {
+                 var dialog = new Gtk.MessageDialog (browser,
+                     Gtk.DialogFlags.DESTROY_WITH_PARENT,
+-                    Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE,
++                    Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "%s",
+                     _("Some files are being downloaded"));
+                 dialog.title = _("Some files are being downloaded");
+                 dialog.add_buttons (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
