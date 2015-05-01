@@ -4,8 +4,8 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.5.8
-Release:	3
+Version:	0.5.10
+Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
@@ -29,7 +29,6 @@ BuildRequires:  pkgconfig(webkitgtk-3.0) >= 1.1.17
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xscrnsaver)
 BuildRequires:  pkgconfig(gcr-3)
-BuildRequires:  pkgconfig(zeitgeist-1.0)
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
@@ -37,7 +36,7 @@ Requires:	glib-networking
 Requires:	gsettings-desktop-schemas
 
 %description
-Midori is a lightweight GTK+ 2 web browser based on WebKitGtk. It
+Midori is a lightweight GTK+ 3 web browser based on WebKitGtk. It
 features tabs, windows and session management, bookmarks stored with
 XBEL, searchbox based on OpenSearch, and user scripts support.
 
@@ -63,7 +62,7 @@ This package contains the development files for %{name}.
 %apply_patches
 
 %build
-%cmake -DUSE_APIDOCS=1 -DUSE_GTK3=ON
+%cmake -DUSE_APIDOCS=1 -DUSE_GTK3=ON -DUSE_ZEITGEIST=OFF
 %make
 
 %install
