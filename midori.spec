@@ -10,6 +10,7 @@ License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
 Source0:	http://www.midori-browser.org/downloads/%{name}_%{version}_all_.tar.bz2
+Patch1:		midori-0.5.10-warnings.patch
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
