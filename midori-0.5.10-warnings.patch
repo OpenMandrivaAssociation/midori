@@ -9,3 +9,14 @@
          if (gtk_toggle_button_get_active (button))
              count++;
      }
+--- t/extensions/external-download-manager.vala.orig	2015-05-01 12:26:37.238800115 +0100
++++ t/extensions/external-download-manager.vala	2015-05-01 12:27:14.210499028 +0100
+@@ -168,7 +168,7 @@
+              * never is launched.*/
+             if (message.status_code != 200) {
+                 var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
+-                    Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE,
++                    Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, "%s",
+                     _("The plug-in was unable to connect with aria2:\n" +
+                       "Please make sure that aria2 is running with rpc enabled ie: aria2c --enable-rpc\n" +
+                       "If it's so, check it also is using the port 6800.\n" +
