@@ -4,13 +4,12 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.5.10
+Version:	0.5.11
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
 Source0:	http://www.midori-browser.org/downloads/%{name}_%{version}_all_.tar.bz2
-Patch1:		midori-0.5.10-warnings.patch
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
@@ -26,7 +25,7 @@ BuildRequires:  pkgconfig(libsoup-2.4)
 BuildRequires:  pkgconfig(libxml-2.0) >= 2.6
 BuildRequires:  pkgconfig(sqlite3) >= 3.0
 BuildRequires:  pkgconfig(unique-3.0) >= 0.9
-BuildRequires:  pkgconfig(webkitgtk-3.0) >= 1.1.17
+BuildRequires:  pkgconfig(webkit2gtk-4.0) >= 1.1.17
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xscrnsaver)
 BuildRequires:  pkgconfig(gcr-3)
@@ -59,14 +58,14 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -q -c
+%setup -q 
 %apply_patches
 
 # remove patch backups as they confuse cmake
 find . -name "*.0001~" -exec rm -f {} \;
 
 %build
-%cmake -DUSE_APIDOCS=1 -DUSE_GTK3=ON -DUSE_ZEITGEIST=OFF
+%cmake -DUSE_APIDOCS=1 -DUSE_GTK3=ON -DUSE_ZEITGEIST=OFF -DHALF_BRO_INCOM_WEBKIT2=ON
 %make
 
 %install
