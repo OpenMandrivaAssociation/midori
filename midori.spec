@@ -58,7 +58,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -qn %{name}-v%{version}
+%autosetup -p1 -n %{name}-v%{version}
 %apply_patches
 
 # remove patch backups as they confuse cmake
