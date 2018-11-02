@@ -4,12 +4,12 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.5.11
+Version:	6.0
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
-Source0:	http://www.midori-browser.org/downloads/%{name}_%{version}_all_.tar.bz2
+Source0:	https://github.com/midori-browser/core/releases/download/v6/%{name}-v%{version}.tar.gz
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
@@ -58,7 +58,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -q 
+%setup -qn %{name}-v%{version}
 %apply_patches
 
 # remove patch backups as they confuse cmake
