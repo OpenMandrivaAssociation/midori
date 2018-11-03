@@ -12,7 +12,7 @@ Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
 # Broken source, without top dir https://github.com/midori-browser/core/issues/150 (penguin)
 #Source0:	https://github.com/midori-browser/core/releases/download/v6/%{name}-v%{version}.tar.gz
-Source0:	https://github.com/midori-browser/core/archive/v6.tar.gz
+Source0:	https://github.com/midori-browser/core/archive/v6/%{oname}-6.tar.gz
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
@@ -61,7 +61,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -qn core-6
+%setup -qn %{oname}-6
 %apply_patches
 
 # remove patch backups as they confuse cmake
