@@ -1,4 +1,5 @@
 %define major	1
+%define oname core
 %define libname	%mklibname %{name}-core %{major}
 %define devname	%mklibname %{name}-core -d
 
@@ -9,7 +10,9 @@ Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
-Source0:	https://github.com/midori-browser/core/releases/download/v6/%{name}-v%{version}.tar.gz
+# Broken source, without top dir https://github.com/midori-browser/core/issues/150 (penguin)
+#Source0:	https://github.com/midori-browser/core/releases/download/v6/%{name}-v%{version}.tar.gz
+Source0:	https://github.com/midori-browser/core/archive/v6.tar.gz
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
@@ -58,7 +61,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -qn /
+%setup -qn core-6
 %apply_patches
 
 # remove patch backups as they confuse cmake
