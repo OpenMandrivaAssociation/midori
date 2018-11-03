@@ -32,6 +32,7 @@ BuildRequires:  pkgconfig(webkit2gtk-4.0) >= 1.1.17
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xscrnsaver)
 BuildRequires:  pkgconfig(gcr-3)
+BuildRequires:	pkgconfig(libpeas-gtk-1.0)
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
