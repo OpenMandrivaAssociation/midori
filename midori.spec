@@ -94,7 +94,7 @@ desktop-file-install \
 %{_datadir}/appdata/midori.appdata.xml
 
 %files -n %{libname}
-%{_libdir}/libmidori-core.so.%{major}
+#{_libdir}/libmidori-core.so.%{major}
 # wrongly named?!
 %{_libdir}/libmidori-core.so.0.*
 
