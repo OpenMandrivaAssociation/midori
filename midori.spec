@@ -99,5 +99,5 @@ desktop-file-install \
 %{_libdir}/libmidori-core.so.0.*
 
 %files -n %{devname}
-%doc %{_datadir}/gtk-doc/html/%{name}*
+#doc #{_datadir}/gtk-doc/html/%{name}*
 %{_libdir}/libmidori-core.so
