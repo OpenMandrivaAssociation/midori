@@ -1,15 +1,18 @@
 %define major	1
+%define oname core
 %define libname	%mklibname %{name}-core %{major}
 %define devname	%mklibname %{name}-core -d
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	0.5.11
+Version:	6.0
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
-Source0:	http://www.midori-browser.org/downloads/%{name}_%{version}_all_.tar.bz2
+# Broken source, without top dir https://github.com/midori-browser/core/issues/150 (penguin)
+#Source0:	https://github.com/midori-browser/core/releases/download/v6/%{name}-v%{version}.tar.gz
+Source0:	https://github.com/midori-browser/core/archive/v6/%{oname}-6.tar.gz
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
@@ -29,6 +32,7 @@ BuildRequires:  pkgconfig(webkit2gtk-4.0) >= 1.1.17
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xscrnsaver)
 BuildRequires:  pkgconfig(gcr-3)
+BuildRequires:	pkgconfig(libpeas-gtk-1.0)
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
@@ -58,7 +62,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -q 
+%setup -qn %{oname}-6
 %apply_patches
 
 # remove patch backups as they confuse cmake
@@ -80,20 +84,22 @@ desktop-file-install \
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog README
+%doc ChangeLog README.md COPYING
 %{_bindir}/%{name}
 %{_libdir}/%{name}/
 %{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/*/*/*
-%{_datadir}/%{name}
-%{_sysconfdir}/xdg/midori
+#{_datadir}/%{name}
+#{_sysconfdir}/xdg/midori
 %{_datadir}/appdata/midori.appdata.xml
+%{_datadir}/gir-1.0/Midori-0.6.gir
+%{_libdir}/girepository-1.0/Midori-0.6.typelib
 
 %files -n %{libname}
-%{_libdir}/libmidori-core.so.%{major}
+%{_libdir}/libmidori-core*
 # wrongly named?!
-%{_libdir}/libmidori-core.so.0.*
+#{_libdir}/libmidori-core.so.0.*
 
 %files -n %{devname}
-%doc %{_datadir}/gtk-doc/html/%{name}*
+#doc #{_datadir}/gtk-doc/html/%{name}*
 %{_libdir}/libmidori-core.so
