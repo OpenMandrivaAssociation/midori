@@ -84,13 +84,13 @@ desktop-file-install \
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog README
+%doc ChangeLog README.md
 %{_bindir}/%{name}
 %{_libdir}/%{name}/
 %{_datadir}/applications/%{name}*.desktop
 %{_iconsdir}/hicolor/*/*/*
-%{_datadir}/%{name}
-%{_sysconfdir}/xdg/midori
+#{_datadir}/%{name}
+#{_sysconfdir}/xdg/midori
 %{_datadir}/appdata/midori.appdata.xml
 
 %files -n %{libname}
