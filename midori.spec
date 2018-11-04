@@ -96,9 +96,9 @@ desktop-file-install \
 %{_libdir}/girepository-1.0/Midori-0.6.typelib
 
 %files -n %{libname}
-%{_libdir}/libmidori-core.so
+%{_libdir}/libmidori-core*
 # wrongly named?!
-%{_libdir}/libmidori-core.so.0.*
+#{_libdir}/libmidori-core.so.0.*
 
 %files -n %{devname}
 #doc #{_datadir}/gtk-doc/html/%{name}*
