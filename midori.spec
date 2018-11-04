@@ -84,7 +84,7 @@ desktop-file-install \
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc ChangeLog README.md
+%doc ChangeLog README.md COPYING
 %{_bindir}/%{name}
 %{_libdir}/%{name}/
 %{_datadir}/applications/%{name}*.desktop
@@ -92,9 +92,11 @@ desktop-file-install \
 #{_datadir}/%{name}
 #{_sysconfdir}/xdg/midori
 %{_datadir}/appdata/midori.appdata.xml
+%{_datadir}/gir-1.0/Midori-0.6.gir
+%{_libdir}/girepository-1.0/Midori-0.6.typelib
 
 %files -n %{libname}
-#{_libdir}/libmidori-core.so.%{major}
+%{_libdir}/libmidori-core.so
 # wrongly named?!
 %{_libdir}/libmidori-core.so.0.*
 
