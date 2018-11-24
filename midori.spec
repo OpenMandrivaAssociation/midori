@@ -1,4 +1,4 @@
-%define major	1
+%define major	0
 %define oname core
 %define libname	%mklibname %{name}-core %{major}
 %define devname	%mklibname %{name}-core -d
@@ -96,9 +96,7 @@ desktop-file-install \
 %{_libdir}/girepository-1.0/Midori-0.6.typelib
 
 %files -n %{libname}
-%{_libdir}/libmidori-core*
-# wrongly named?!
-#{_libdir}/libmidori-core.so.0.*
+%{_libdir}/libmidori-core.so.%{major}*
 
 %files -n %{devname}
 #doc #{_datadir}/gtk-doc/html/%{name}*
