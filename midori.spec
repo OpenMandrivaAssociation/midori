@@ -87,7 +87,7 @@ desktop-file-install \
 %doc ChangeLog README.md COPYING
 %{_bindir}/%{name}
 %{_libdir}/%{name}/
-%{_datadir}/org.midori_browser.Midori.desktop
+%{_datadir}/applications/org.midori_browser.Midori.desktop
 %{_iconsdir}/hicolor/*/*/*
 #{_datadir}/%{name}
 #{_sysconfdir}/xdg/midori
