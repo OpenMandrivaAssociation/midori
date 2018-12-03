@@ -5,14 +5,14 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	6.0
-Release:	2
+Version:	7.0
+Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
 # Broken source, without top dir https://github.com/midori-browser/core/issues/150 (penguin)
-#Source0:	https://github.com/midori-browser/core/releases/download/v6/%{name}-v%{version}.tar.gz
-Source0:	https://github.com/midori-browser/core/archive/v6/%{oname}-6.tar.gz
+#Source0:	https://github.com/midori-browser/core/releases/download/v7/%{name}-v%{version}.tar.gz
+Source0:	https://github.com/midori-browser/core/archive/v7/%{oname}-7.tar.gz
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
@@ -62,7 +62,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -qn %{oname}-6
+%setup -qn %{oname}-7
 %apply_patches
 
 # remove patch backups as they confuse cmake
@@ -87,7 +87,7 @@ desktop-file-install \
 %doc ChangeLog README.md COPYING
 %{_bindir}/%{name}
 %{_libdir}/%{name}/
-%{_datadir}/applications/%{name}*.desktop
+%{_datadir}/applications/org.midori_browser.Midori.desktop
 %{_iconsdir}/hicolor/*/*/*
 #{_datadir}/%{name}
 #{_sysconfdir}/xdg/midori
