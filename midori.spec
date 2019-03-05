@@ -12,7 +12,7 @@ Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
 # Broken source, without top dir https://github.com/midori-browser/core/issues/150 (penguin)
 #Source0:	https://github.com/midori-browser/core/releases/download/v8/%{name}-v%{version}.tar.gz
-Source0:	https://github.com/midori-browser/core/archive/v8/%{oname}-8.tar.gz
+Source0:	https://github.com/midori-browser/core/archive/v8/%{oname}-8.0.tar.gz
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
