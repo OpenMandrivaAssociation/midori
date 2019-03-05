@@ -5,14 +5,14 @@
 
 Summary:	Web browser based on WebKitGtk
 Name:		midori
-Version:	7.0
+Version:	8.0
 Release:	1
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
 # Broken source, without top dir https://github.com/midori-browser/core/issues/150 (penguin)
-#Source0:	https://github.com/midori-browser/core/releases/download/v7/%{name}-v%{version}.tar.gz
-Source0:	https://github.com/midori-browser/core/archive/v7/%{oname}-7.tar.gz
+#Source0:	https://github.com/midori-browser/core/releases/download/v8/%{name}-v%{version}.tar.gz
+Source0:	https://github.com/midori-browser/core/archive/v8/%{oname}-8.0.tar.gz
 BuildRequires:  vala
 BuildRequires:  cmake
 BuildRequires:  librsvg
@@ -22,6 +22,8 @@ BuildRequires:  pkgconfig(gio-2.0) >= 2.16.0
 BuildRequires:  pkgconfig(gmodule-2.0) >= 2.8.0
 BuildRequires:  pkgconfig(gthread-2.0) >= 2.8.0
 BuildRequires:  pkgconfig(gtk+-3.0) >= 3.0.0
+BuildRequires:	pkgconfig(json-glib-1.0)
+BuildRequires:	pkgconfig(libarchive)
 BuildRequires:  pkgconfig(libidn) >= 1.0
 BuildRequires:  pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libsoup-2.4)
@@ -62,18 +64,17 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -qn %{oname}-7
-%apply_patches
+%setup -qn %{oname}-%{version}
 
 # remove patch backups as they confuse cmake
 find . -name "*.0001~" -exec rm -f {} \;
 
 %build
 %cmake -DUSE_APIDOCS=1 -DUSE_GTK3=ON -DUSE_ZEITGEIST=OFF -DHALF_BRO_INCOM_WEBKIT2=ON
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 #fix desktop file
 desktop-file-install \
@@ -91,7 +92,7 @@ desktop-file-install \
 %{_iconsdir}/hicolor/*/*/*
 #{_datadir}/%{name}
 #{_sysconfdir}/xdg/midori
-%{_datadir}/appdata/midori.appdata.xml
+%{_datadir}/metainfo/midori.appdata.xml
 %{_datadir}/gir-1.0/Midori-0.6.gir
 %{_libdir}/girepository-1.0/Midori-0.6.typelib
 
