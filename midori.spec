@@ -92,7 +92,7 @@ desktop-file-install \
 %{_iconsdir}/hicolor/*/*/*
 #{_datadir}/%{name}
 #{_sysconfdir}/xdg/midori
-%{_datadir}/appdata/midori.appdata.xml
+%{_datadir}/metainfo/midori.appdata.xml
 %{_datadir}/gir-1.0/Midori-0.6.gir
 %{_libdir}/girepository-1.0/Midori-0.6.typelib
 
