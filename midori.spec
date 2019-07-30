@@ -85,14 +85,14 @@ desktop-file-install \
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc ChangeLog README.md COPYING
+%doc README.md COPYING
 %{_bindir}/%{name}
 %{_libdir}/%{name}/
 %{_datadir}/applications/org.midori_browser.Midori.desktop
 %{_iconsdir}/hicolor/*/*/*
 #{_datadir}/%{name}
 #{_sysconfdir}/xdg/midori
-%{_datadir}/metainfo/midori.appdata.xml
+%{_datadir}/metainfo/org.midori_browser.Midori.appdata.xml
 %{_datadir}/gir-1.0/Midori-0.6.gir
 %{_libdir}/girepository-1.0/Midori-0.6.typelib
 
