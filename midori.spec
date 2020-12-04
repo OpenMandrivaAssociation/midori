@@ -6,7 +6,7 @@
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	9.0
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
@@ -64,7 +64,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%setup -qn %{oname}-%{version}
+%autosetup -n %{oname}-%{version} -p1
 
 # remove patch backups as they confuse cmake
 find . -name "*.0001~" -exec rm -f {} \;
