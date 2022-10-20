@@ -64,7 +64,7 @@ Obsoletes:	%{name}-devel < 0.5.7
 This package contains the development files for %{name}.
 
 %prep
-%autosetup -n %{oname}-%{version} -p1
+%autosetup -n %{name}-v%{version} -p1
 
 # remove patch backups as they confuse cmake
 find . -name "*.0001~" -exec rm -f {} \;
