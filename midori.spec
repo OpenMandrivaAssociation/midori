@@ -6,16 +6,16 @@
 Summary:	Web browser based on WebKitGtk
 Name:		midori
 Version:	9.0
-Release:	3
+Release:	4
 License:	LGPLv2+
 Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
-# Broken source, without top dir https://github.com/midori-browser/core/issues/150 (penguin)
-#Source0:	https://github.com/midori-browser/core/releases/download/v8/%{name}-v%{version}.tar.gz
-Source0:	https://github.com/midori-browser/core/archive/v9/%{oname}-%{version}.tar.gz
+#Source0:	https://github.com/midori-browser/core/releases/download/v9.0/%{name}-v%{version}.tar.gz
+Source0:	https://github.com/midori-browser/core/archive/v9.0/%{oname}-v%{version}.tar.gz
 BuildRequires:  vala
-BuildRequires:  cmake
 BuildRequires:  librsvg
+BuildRequires:  cmake
+BuildRequires:  ninja
 BuildRequires:	intltool
 BuildRequires:	gtk-doc
 BuildRequires:  pkgconfig(gio-2.0) >= 2.16.0
@@ -70,11 +70,16 @@ This package contains the development files for %{name}.
 find . -name "*.0001~" -exec rm -f {} \;
 
 %build
-%cmake -DUSE_APIDOCS=1 -DUSE_GTK3=ON -DUSE_ZEITGEIST=OFF -DHALF_BRO_INCOM_WEBKIT2=ON
-%make_build
+%cmake \
+	-DUSE_APIDOCS=1 \
+	-DUSE_GTK3=ON \
+	-DUSE_ZEITGEIST=OFF \
+	-DHALF_BRO_INCOM_WEBKIT2=ON \
+	-G Ninja
+%ninja_build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 #fix desktop file
 desktop-file-install \
