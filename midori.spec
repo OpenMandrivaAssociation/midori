@@ -12,6 +12,11 @@ Group:		Networking/WWW
 URL:		http://www.midori-browser.org/
 Source0:	https://github.com/midori-browser/core/releases/download/v9.0/%{name}-v%{version}.tar.gz
 #Source0:	https://github.com/midori-browser/core/archive/v9.0/%{oname}-v%{version}.tar.gz
+# remove Wint-conversion
+#   extensions/session.vala:73:69: error: incompatible integer to pointer
+#   conversion passing 'gint64' (aka 'long') to parameter of type 'gpointer'
+#   (aka 'void *') [-Wint-conversion]
+Patch0:		midori-9.0-fix_build.patch
 BuildRequires:  vala
 BuildRequires:  librsvg
 BuildRequires:  cmake
@@ -46,12 +51,31 @@ Midori is a lightweight GTK+ 3 web browser based on WebKitGtk. It
 features tabs, windows and session management, bookmarks stored with
 XBEL, searchbox based on OpenSearch, and user scripts support.
 
+%files -f %{name}.lang
+%doc README.md COPYING
+%{_bindir}/%{name}
+%{_libdir}/%{name}/
+%{_datadir}/applications/org.midori_browser.Midori.desktop
+%{_iconsdir}/hicolor/*/*/*
+#{_datadir}/%{name}
+#{_sysconfdir}/xdg/midori
+%{_datadir}/metainfo/org.midori_browser.Midori.appdata.xml
+%{_datadir}/gir-1.0/Midori-0.6.gir
+%{_libdir}/girepository-1.0/Midori-0.6.typelib
+
+#-----------------------------------------------------------------------
+
 %package -n %{libname}
 Summary:	Core libraries for %{name}
 Group:		System/Libraries
 
 %description -n %{libname}
 This package contains the core libraries for %{name}.
+
+%files -n %{libname}
+%{_libdir}/libmidori-core.so.%{major}*
+
+#-----------------------------------------------------------------------
 
 %package -n %{devname}
 Summary:	Development files for %{name}
@@ -63,11 +87,18 @@ Obsoletes:	%{name}-devel < 0.5.7
 %description -n %{devname}
 This package contains the development files for %{name}.
 
+%files -n %{devname}
+#%%doc %{_datadir}/gtk-doc/html/%{name}*
+%{_libdir}/libmidori-core.so
+
+#-----------------------------------------------------------------------
+
 %prep
 %autosetup -n %{name}-v%{version} -p1
 
+
 # remove patch backups as they confuse cmake
-find . -name "*.0001~" -exec rm -f {} \;
+#find . -name "*.0001~" -exec rm -f {} \;
 
 %build
 %cmake \
@@ -87,23 +118,6 @@ desktop-file-install \
 	--dir=%{buildroot}%{_datadir}/applications/ \
 		 %{buildroot}%{_datadir}/applications/*.desktop
 
+# locales
 %find_lang %{name}
 
-%files -f %{name}.lang
-%doc README.md COPYING
-%{_bindir}/%{name}
-%{_libdir}/%{name}/
-%{_datadir}/applications/org.midori_browser.Midori.desktop
-%{_iconsdir}/hicolor/*/*/*
-#{_datadir}/%{name}
-#{_sysconfdir}/xdg/midori
-%{_datadir}/metainfo/org.midori_browser.Midori.appdata.xml
-%{_datadir}/gir-1.0/Midori-0.6.gir
-%{_libdir}/girepository-1.0/Midori-0.6.typelib
-
-%files -n %{libname}
-%{_libdir}/libmidori-core.so.%{major}*
-
-%files -n %{devname}
-#doc #{_datadir}/gtk-doc/html/%{name}*
-%{_libdir}/libmidori-core.so

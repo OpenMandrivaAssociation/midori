@@ -1,0 +1,12 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -69,7 +69,7 @@
+ set(CFLAGS "${CFLAGS} -g")
+ 
+ # Explicitly add -fPIC for older toolchains
+-set(VALA_CFLAGS "-g -fPIC -w -Werror")
++set(VALA_CFLAGS "-g -fPIC -w -Werror -Wno-int-conversion")
+ 
+ set(LIBCORE "${CMAKE_PROJECT_NAME}-core")
+ set(CORE_USER_AGENT_VERSION "Midori/6")
+
