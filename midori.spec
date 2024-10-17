@@ -9,7 +9,7 @@ Version:	9.0
 Release:	4
 License:	LGPLv2+
 Group:		Networking/WWW
-URL:		http://www.midori-browser.org/
+URL:		https://www.midori-browser.org/
 Source0:	https://github.com/midori-browser/core/releases/download/v9.0/%{name}-v%{version}.tar.gz
 #Source0:	https://github.com/midori-browser/core/archive/v9.0/%{oname}-v%{version}.tar.gz
 # remove Wint-conversion
